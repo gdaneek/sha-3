@@ -1,4 +1,4 @@
-# README: sha3tool
+# sha3tool
 
 ## Описание
 
