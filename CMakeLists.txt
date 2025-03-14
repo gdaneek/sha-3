@@ -5,8 +5,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(sha3tool_no_optimized sha3.cc example.cc)
 add_executable(sha3tool sha3.cc example.cc)
+add_executable(sha512 sha3_512.cc sha3.cc)
 
-target_compile_options(sha3tool PRIVATE
+set(TARGETS sha3tool sha512)
+
+foreach(target IN LISTS TARGETS)
+    target_compile_options(${target} PRIVATE
     -std=c++20
     -O3
     -Ofast
@@ -24,4 +28,7 @@ target_compile_options(sha3tool PRIVATE
     -fprefetch-loop-arrays
     -fno-semantic-interposition
     -funroll-loops
-)
+    )
+endforeach()
+
+

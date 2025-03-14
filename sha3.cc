@@ -24,7 +24,7 @@ void sha3(const uint8_t* data, uint8_t* out, const uint64_t fsize) {
             *s ^= rc[rnd];
         }
     }
-    []<ui64... i>(uint8_t* out, ui64* s, is<i...>) { ((out[i] = (uint8_t)(s[i>>3]>>((i%8)<<3))), ...); } (out, s, make_is<(dval>>3)>());
+    [&s, &out]<ui64... i>(is<i...>) { ((out[i] = (uint8_t)(s[i>>3]>>((i%8)<<3))), ...); } (make_is<(dval>>3)>());
 }
 
 void sha3_224(const uint8_t* data, uint8_t* out, const uint64_t fsize) { sha3<224>(data, out, fsize); }
