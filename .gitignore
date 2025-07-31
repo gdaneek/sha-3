@@ -1,0 +1,7 @@
+/build/
+
+*.log
+*.gch
+*.o
+*.out
+
