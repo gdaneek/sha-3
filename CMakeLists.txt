@@ -1,34 +1,39 @@
 cmake_minimum_required(VERSION 3.20)
 
+project(sha-3)
+
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD_REQUIRED off)
 
-add_executable(sha3tool_no_optimized sha3.cc example.cc)
-add_executable(sha3tool sha3.cc example.cc)
-add_executable(sha512 sha3_512.cc sha3.cc)
+add_executable(sha3 example/multi_mode.cc)
 
-set(TARGETS sha3tool sha512)
+add_executable(sha3_512 example/single_mode.cc)
+target_compile_options(sha3_512 PRIVATE -DSHA_3_512)
+
+add_executable(sha3_256 example/single_mode.cc)
+target_compile_options(sha3_256 PRIVATE -DSHA_3_256)
+
+add_executable(sha3_384 example/single_mode.cc)
+target_compile_options(sha3_384 PRIVATE -DSHA_3_384)
+
+add_executable(sha3_224 example/single_mode.cc)
+target_compile_options(sha3_384 PRIVATE -DSHA_3_224)
+
+set(TARGETS sha3 sha3_512 sha3_256 sha3_384 sha3_224)
 
 foreach(target IN LISTS TARGETS)
     target_compile_options(${target} PRIVATE
-    -std=c++20
-    -O3
-    -Ofast
-    -ffast-math
-    -s
-    -march=native
-    -flto
-    -fno-exceptions
-    -fno-rtti
-    -funsafe-math-optimizations
-    -mavx2
-    -msse2
-    -m64
-    -mprefer-vector-width=256
-    -fprefetch-loop-arrays
-    -fno-semantic-interposition
-    -funroll-loops
+        -std=c++20
+        -O3 -Ofast
+        -march=native
+        -flto
+        -fno-exceptions
+        -fno-rtti
+        -nostdlib
+        -Wno-shift-count-overflow
     )
+
+    target_include_directories(${target} PRIVATE include/)
 endforeach()
 
 
