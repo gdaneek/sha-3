@@ -17,7 +17,7 @@ add_executable(sha3_384 example/single_mode.cc)
 target_compile_options(sha3_384 PRIVATE -DSHA_3_384)
 
 add_executable(sha3_224 example/single_mode.cc)
-target_compile_options(sha3_384 PRIVATE -DSHA_3_224)
+target_compile_options(sha3_224 PRIVATE -DSHA_3_224)
 
 enable_testing()
 add_executable(sha3_test test/sha3_test.cc)
