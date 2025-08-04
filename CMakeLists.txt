@@ -19,7 +19,11 @@ target_compile_options(sha3_384 PRIVATE -DSHA_3_384)
 add_executable(sha3_224 example/single_mode.cc)
 target_compile_options(sha3_384 PRIVATE -DSHA_3_224)
 
-set(TARGETS sha3 sha3_512 sha3_256 sha3_384 sha3_224)
+enable_testing()
+add_executable(sha3_test test/sha3_test.cc)
+add_test(NAME sha3_test COMMAND sha3_test)
+
+set(TARGETS sha3 sha3_512 sha3_256 sha3_384 sha3_224 sha3_test)
 
 foreach(target IN LISTS TARGETS)
     target_compile_options(${target} PRIVATE
@@ -35,5 +39,4 @@ foreach(target IN LISTS TARGETS)
 
     target_include_directories(${target} PRIVATE include/)
 endforeach()
-
 

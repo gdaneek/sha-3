@@ -11,7 +11,8 @@
 #include <utility>
 #include "constant.hh"
 
-#define UNROLL(A, F) [&]<uint64_t... i>(std::index_sequence<i...>) __attribute__((always_inline)) { ((A), ...); } (std::make_index_sequence<(F)>());
+#define UNROLL(A, F) [&]<uint64_t... i>(std::index_sequence<i...>) \
+                     __attribute__((always_inline)) { ((A), ...); } (std::make_index_sequence<(F)>());
 
 template <std::size_t bsz>
 inline auto core(const void* __restrict in, uint64_t* __restrict s) {
@@ -41,7 +42,6 @@ inline void sha3(void* out, const void* in, const uint64_t sz) {
   uint8_t bbuf[bsz] = {0};
   bbuf[bsz - 1] = 0x80;
   bbuf[resid] |= 0x06;
-
   for (uint64_t i{}; i < n; i++) core<bsz>(&((char*)in)[i * bsz], s);
   memcpy(bbuf, &((char*)in)[sz - resid], resid);
   core<bsz>(bbuf, s);
