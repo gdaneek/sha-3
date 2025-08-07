@@ -1,83 +1,97 @@
-# sha3tool
+# SHA-3 hash
 
-## Описание
+*High-performance* implementation of SHA-3 hashing according to the **FIPS 202** standard
 
-`sha3tool` — это утилита для работы с хешами SHA-3. Программа поддерживает два режима работы:
+---
 
-1. **Проверка целостности**: позволяет проверить соответствие файла заданному хешу.
-2. **Вычисление хеша**: вычисляет хеш-функцию SHA-3 для указанного файла.
+## 📦 Installation
 
-## Поддерживаемые алгоритмы
+Clone the repository:
 
-Поддерживаются следующие хеш-функции семейства SHA-3:
-
-- SHA-3-224
-- SHA-3-256
-- SHA-3-384
-- SHA-3-512
-
-## Установка
-
-Для сборки программы потребуется `g++` и `CMake`. Выполните следующие команды:
-
+```bash
+git clone https://github.com/gdaneek/sha-3.git
 ```
+
+Build the project using CMake:
+
+```bash
 mkdir build
 cd build
 cmake ..
 cmake --build .
 ```
 
-После успешной сборки исполняемый файл `sha3tool` будет доступен в директории `build`.
+After building, the executables will be located in the `build/` directory.
 
-## Использование
+---
 
-Программа принимает аргументы в зависимости от режима работы. Формат команд указан в таблицах ниже.
+## 🛠️ Program Usage
 
-### Режим "Проверка целостности"
+There are two ways to compute SHA-3 hashes:
 
-Команда:
+### 1. Mode-Specific Executables
 
-```
-checkfile <путь_к_файлу> <ожидаемый_хеш>
-```
+Use files named `sha3_<mode>` (where `<mode>` = `224`, `256`, `384`, or `512`) to compute the hash:
 
-Где:
-- `<путь_к_файлу>` — путь к файлу, который необходимо проверить.
-- `<ожидаемый_хеш>` — ожидаемый хеш в виде hex-строки длиной 56, 64, 96 или 128 символов (в зависимости от выбранного алгоритма SHA-3).
-
-Пример:
-
-```
-sha3tool vh example.txt d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f
+```bash
+sha3_256 file.txt
 ```
 
-### Режим "Вычисление хеша"
+This command computes the SHA-3 hash of `file.txt` using the 256-bit mode.
 
-Команда:
+---
 
-```
-sha3tool <размер> <путь_к_файлу>
-```
+### 2. Unified Executable
 
-Где:
+Use the main executable `sha3` and specify the mode as a command-line argument:
 
-- `<размер>` — размер выходного хеша: 224, 256, 384 или 512 (соответствует SHA-3-224, SHA-3-256 и т. д.).
-- `<путь_к_файлу>` — путь к файлу, для которого нужно вычислить хеш.
-
-Пример:
-
-```
-sha3tool 256 example.txt
+```bash
+sha3 512 file.txt
 ```
 
-## Преимущества `sha3tool`
+This computes the SHA-3 hash of `file.txt` using the 512-bit mode.
 
-Сравнительный анализ производительности показывает, что `sha3tool` имеет следующие преимущества:
-
-- **Скорость обработки мелких файлов (4.7 МБ)**: на уровне OpenSSL (лучший результат среди всех программ).
-- **Скорость обработки файлов среднего размера (105 МБ)**: немного уступает OpenSSL, но превосходит hashlib.
-- **Скорость обработки больших файлов (632 МБ)**: находится на уровне OpenSSL, значительно быстрее hashlib.
-- **Минимальное системное время**: `sha3tool` потребляет наименьшее количество системного времени при обработке файлов, что делает его эффективным для многозадачных сред.
+> Versions with the `chunked_` prefix use an alternative file processing method, but produce the same results
 
 
+---
 
+## 🧑‍💻 Development
+
+The implementation is provided as a C++ header-only library. To use it:
+
+1. Include the header file in your project:
+
+```cpp
+#include "sha3.hpp"
+```
+
+2. Make sure the compiler knows the path to the `include/` directory of this repository.
+
+📚 Explore [**usage examples**](example/) and the [**programmer's guide**](https://gdaneek.github.io/sha-3) for more information.
+
+---
+
+## 📄 Documentation
+
+Read the full documentation online at [**GitHub Pages**](https://gdaneek.github.io/sha-3).
+
+Alternatively, generate the documentation locally with Doxygen:
+
+```bash
+doxygen doc/Doxyfile
+```
+
+The generated documentation will be available in the `doc/code/` subfolder.
+
+---
+
+## 🧪 Benchmarking
+
+See [**Manual Benchmarking**](doc/benchmark.md) for performance testing instructions.
+
+---
+
+## 📜 License
+
+Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
