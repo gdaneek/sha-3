@@ -21,3 +21,34 @@ jobs:
 
     - name: Run tests
       run: cd build && ctest --output-on-failure
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y hyperfine
+
+    - name: Generate test file
+      run: |
+        cd build
+        dd if=/dev/zero of=500MB bs=1M count=500
+        ls -lh 500MB
+
+    - name: Run benchmarks with hyperfine
+      run: |
+        cd build
+        hyperfine \
+          --warmup 5 \
+          --export-markdown result.md \
+          "./sha3 224 ./500MB" \
+          "./chunked_sha3_224 ./500MB" \
+          "openssl dgst -sha3-224 ./500MB"
+
+        cat result.md
+        mv result.md ../result.md
+
+    - name: Upload benchmark results
+      uses: actions/upload-artifact@v4
+      with:
+        name: result
+        path: result.md
+        retention-days: 7
