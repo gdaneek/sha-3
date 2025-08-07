@@ -14,10 +14,11 @@
 #include "sha3.hpp"
 
 int main(int argc, char* argv[]) {
-  int fd = open(argv[2], O_RDONLY | O_DIRECT);
+  int fd = open(argv[2], O_RDONLY);
   uint16_t mode = atoi(argv[1]);
 
-  if (fd == -1) return 1;
+  if (fd == -1)
+    return 1;
 
   uint64_t file_size = lseek(fd, 0, SEEK_END);
   lseek(fd, 0, SEEK_SET);

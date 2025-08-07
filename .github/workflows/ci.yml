@@ -3,9 +3,6 @@ name: CMake Tests
 on:
   push:
     branches: [ dev ]
-  pull_request:
-    branches: [ main ]
-
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
@@ -21,37 +18,3 @@ jobs:
 
     - name: Run tests
       run: cd build && ctest --output-on-failure
-
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y hyperfine rhash
-
-    - name: Generate test file
-      run: |
-        cd build
-        dd if=/dev/zero of=1GB bs=1M count=1024
-        ls -lh 1GB
-
-    - name: Run benchmarks with hyperfine
-      run: |
-        cd build
-        Modes=("224" "256" "384" "512")
-        for mode in "${Modes[@]}"; do
-          hyperfine \
-            --warmup 5 \
-            --export-markdown result.md \
-            "./sha3 $mode 1GB" \
-            "./chunked_sha3_$mode 1GB" \
-            "openssl dgst -sha3-$mode 1GB" \
-            "rhash --sha3-$mode 1GB"
-        done
-        cat result.md
-        mv result.md ../result.md
-
-    - name: Upload benchmark results
-      uses: actions/upload-artifact@v4
-      with:
-        name: result
-        path: result.md
-        retention-days: 7
