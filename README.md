@@ -1,6 +1,6 @@
 # SHA-3 hash
 
-*High-performance* implementation of SHA-3 hashing according to the **FIPS 202** standard
+**High-performance** implementation of SHA-3 hashing according to the *FIPS 202* standard
 
 ---
 
