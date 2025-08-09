@@ -1,0 +1,68 @@
+name: Auto benchmarking
+
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: dev
+        fetch-depth: 0
+
+    - name: Configure CMake
+      run: cmake -B build -S .
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Install hyperfine
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y hyperfine libdigest-sha3-perl rhash
+
+    - name: Generate test file
+      run: |
+        cd build
+        dd if=/dev/zero of=4GB bs=1M count=4096
+        ls -lh 4GB
+
+    - name: Run benchmarks with hyperfine
+      run: |
+        cd build
+        for bits in 224 256 384 512; do
+        hyperfine -w 10 \
+            "./sha3 $bits 4GB" \
+            "./chunked_sha3_$bits 4GB" \
+            "openssl dgst -sha3-$bits 4GB" \
+            "sha3sum -a $bits 4GB" \
+            "rhash --sha3-$bits 4GB" \
+            --export-markdown "sha-3-$bits.md"
+        done
+
+    - name: Update README
+      run: |
+        mv build/*.md .
+        mv doc/update_readme.py ./update_readme.py
+        python3 update_readme.py
+
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add README.md
+        if git diff-index --quiet HEAD --; then
+          echo "No changes to commit"
+        else
+          git commit -m "doc: update benchmark results from Github Actions"
+          git push origin dev
+        fi
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

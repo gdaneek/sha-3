@@ -86,15 +86,17 @@ The generated documentation will be available in the `doc/code/` subfolder.
 
 ---
 
-## 🧪 Benchmarking
+## 🧪 Benchmark
 
 See [**Manual benchmark**](doc/benchmark.md) for performance testing instructions or
-see the results of automatic CI/CD benchmarking below
+results of automatic CI/CD benchmarking below
 
 <details>
 <summary>Github Actions benchmarking</summary>
 
+
 > Runs on ubuntu latest
+
 
 <!-- BENCHMARK_START -->
 
