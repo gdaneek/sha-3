@@ -44,6 +44,7 @@ foreach(target IN LISTS TARGETS)
         -std=c++20
         -O3 -Ofast
         -march=native
+        -mtune=native
         -flto
         -fno-exceptions
         -fno-rtti
