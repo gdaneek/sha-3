@@ -1,9 +1,6 @@
 name: Auto benchmarking
 
 on:
-  release:
-    types: [published]
-
   workflow_dispatch:
 
 jobs:
@@ -51,7 +48,7 @@ jobs:
     - name: Update README
       run: |
         mv build/*.md .
-        mv doc/update_readme.py ./update_readme.py
+        mv docs/update_readme.py ./update_readme.py
         python3 update_readme.py
 
         git config --global user.name "GitHub Actions"
@@ -60,7 +57,7 @@ jobs:
         if git diff-index --quiet HEAD --; then
           echo "No changes to commit"
         else
-          git commit -m "doc: update benchmark results from Github Actions"
+          git commit -m "docs: update benchmark results from Github Actions"
           git push origin dev
         fi
 
