@@ -3,7 +3,7 @@
 [![FIPS 202](https://img.shields.io/badge/standard-FIPS%20202-blue?style=flat)](https://csrc.nist.gov/pubs/fips/202/final)
 ![C++20](https://img.shields.io/badge/code-C++20-purple?style=flat)
 ![Google Code Style](https://img.shields.io/badge/style-Google-purple?style=flat)
-[![Benchmark](https://img.shields.io/badge/benchmark-race-brightgreen?style=flat)](doc/benchmark.md)
+[![Benchmark](https://img.shields.io/badge/benchmark-race-brightgreen?style=flat)](docs/benchmark.md)
 [![GitHub license](https://img.shields.io/github/license/gdaneek/sha-3?style=flat)](https://github.com/gdaneek/sha-3/blob/master/LICENSE)
 
 **High-performance** implementation of SHA-3 hashing according to the *FIPS 202* standard
@@ -74,7 +74,7 @@ The implementation is provided as a C++ header-only library. To use it:
 
 2. Make sure the compiler knows the path to the `include/` directory of this repository.
 
-📚 Explore [**usage examples**](example/) and the [**programmer's guide**](https://gdaneek.github.io/sha-3) for more information.
+📚 Explore [**usage examples**](examples/) and the [**programmer's guide**](https://gdaneek.github.io/sha-3) for more information.
 
 ---
 
@@ -85,16 +85,16 @@ Read the full documentation online at [**GitHub Pages**](https://gdaneek.github.
 Alternatively, generate the documentation locally with Doxygen:
 
 ```bash
-doxygen doc/Doxyfile
+doxygen docs/Doxyfile
 ```
 
-The generated documentation will be available in the `doc/code/` subfolder.
+The generated documentation will be available in the `docs/code/` subfolder.
 
 ---
 
 ## 🧪 Benchmark
 
-See [**Manual benchmark**](doc/benchmark.md) for performance testing instructions or
+See [**Manual benchmark**](docs/benchmark.md) for performance testing instructions or
 results of automatic CI/CD benchmarking below
 
 <details>

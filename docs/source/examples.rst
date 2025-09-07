@@ -11,7 +11,7 @@ This code demonstrates the simplest usage scenario of the SHA-3 library, utilizi
 This approach is efficient for files that can fit entirely in memory, as it minimizes system calls and allows the SHA-3 algorithm to process the data in one contiguous block.
 
 
-.. literalinclude:: ../../example/single_mode.cc
+.. literalinclude:: ../../examples/single_mode.cc
    :language: cpp
    :lines: 8-32, 34-35, 47-52
 
@@ -26,7 +26,7 @@ It demonstrates how to use the combination of ``update`` and ``finalize`` method
 This approach is memory-efficient and suitable for streaming applications or handling files that are too large to load into memory at once.
 
 
-.. literalinclude:: ../../example/chunked.cc
+.. literalinclude:: ../../examples/chunked.cc
    :language: cpp
    :lines: 8-16, 18, 27-64, 66, 75-81
    :emphasize-lines: 17-28
