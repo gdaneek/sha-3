@@ -5,6 +5,9 @@
 ![Google Code Style](https://img.shields.io/badge/style-Google-purple?style=flat)
 [![Benchmark](https://img.shields.io/badge/benchmark-race-brightgreen?style=flat)](docs/benchmark.md)
 [![GitHub license](https://img.shields.io/github/license/gdaneek/sha-3?style=flat)](https://github.com/gdaneek/sha-3/blob/master/LICENSE)
+[![CMake Tests](https://github.com/gdaneek/sha-3/actions/workflows/test.yml/badge.svg?label=tests)](https://github.com/gdaneek/sha-3/actions/workflows/test.yml)
+[![Deploy docs to GitHub Pages](https://github.com/gdaneek/sha-3/actions/workflows/pages.yml/badge.svg?label=docs)](https://github.com/gdaneek/sha-3/actions/workflows/pages.yml)
+[![Auto benchmarking](https://github.com/gdaneek/sha-3/actions/workflows/benchmark.yml/badge.svg?label=ci/cd%20benchmark)](https://github.com/gdaneek/sha-3/actions/workflows/benchmark.yml)
 
 **High-performance** implementation of SHA-3 hashing according to the *FIPS 202* standard
 
