@@ -22,9 +22,8 @@ Build the project using CMake:
 
 ```bash
 mkdir build
-cd build
-cmake ..
-cmake --build .
+cmake -S . -B build
+cmake --build build
 ```
 
 After building, the executables will be located in the `build/` directory.
