@@ -1,0 +1,14 @@
+.. _exhale_variable_constant_8hh_1a579d1b83ffccbb7a3fd320d35f1c7b28:
+
+Variable rot
+============
+
+- Defined in :ref:`file__home_runner_work_sha-3_sha-3_include_constant.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: rot
+   :project: My C++ Project

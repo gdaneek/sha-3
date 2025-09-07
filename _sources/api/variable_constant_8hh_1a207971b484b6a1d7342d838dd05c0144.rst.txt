@@ -1,0 +1,14 @@
+.. _exhale_variable_constant_8hh_1a207971b484b6a1d7342d838dd05c0144:
+
+Variable pi
+===========
+
+- Defined in :ref:`file__home_runner_work_sha-3_sha-3_include_constant.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: pi
+   :project: My C++ Project

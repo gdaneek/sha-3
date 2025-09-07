@@ -1,0 +1,14 @@
+.. _exhale_define_sha3_8hpp_1a76802daf4798ffc9798d7c112125f3b9:
+
+Define UNROLL
+=============
+
+- Defined in :ref:`file__home_runner_work_sha-3_sha-3_include_sha3.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: UNROLL
+   :project: My C++ Project

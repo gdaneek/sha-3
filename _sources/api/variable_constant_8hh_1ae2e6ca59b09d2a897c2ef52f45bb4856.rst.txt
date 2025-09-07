@@ -1,0 +1,14 @@
+.. _exhale_variable_constant_8hh_1ae2e6ca59b09d2a897c2ef52f45bb4856:
+
+Variable b
+==========
+
+- Defined in :ref:`file__home_runner_work_sha-3_sha-3_include_constant.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: b
+   :project: My C++ Project

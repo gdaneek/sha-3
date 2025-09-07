@@ -1,0 +1,14 @@
+.. _exhale_function_sha3_8hpp_1a4026ecf4bc108d2491fc59f73f8baf63:
+
+Template Function sha3
+======================
+
+- Defined in :ref:`file__home_runner_work_sha-3_sha-3_include_sha3.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: sha3(auto&&...)
+   :project: My C++ Project
