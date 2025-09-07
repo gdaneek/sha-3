@@ -1,4 +1,4 @@
-name: Auto benchmarking
+name: CI/CD Benchmark
 
 on:
   workflow_dispatch:
