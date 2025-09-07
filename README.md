@@ -6,7 +6,6 @@
 [![Benchmark](https://img.shields.io/badge/benchmark-race-brightgreen?style=flat)](docs/benchmark.md)
 [![GitHub license](https://img.shields.io/github/license/gdaneek/sha-3?style=flat)](https://github.com/gdaneek/sha-3/blob/master/LICENSE)
 
-<br>
 
 [![CMake tests](https://github.com/gdaneek/sha-3/actions/workflows/test.yml/badge.svg?)](https://github.com/gdaneek/sha-3/actions/workflows/test.yml)
 [![Deploy Pages](https://github.com/gdaneek/sha-3/actions/workflows/pages.yml/badge.svg?)](https://github.com/gdaneek/sha-3/actions/workflows/pages.yml)
