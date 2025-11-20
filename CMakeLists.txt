@@ -52,6 +52,6 @@ foreach(target IN LISTS TARGETS)
         -Wno-shift-count-overflow
     )
 
-    target_include_directories(${target} PRIVATE include/)
+    target_include_directories(${target} PRIVATE sha3 external)
 endforeach()
 
