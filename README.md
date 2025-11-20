@@ -1,16 +1,16 @@
 # SHA-3
 
-[![FIPS 202](https://img.shields.io/badge/standard-FIPS%20202-blue?style=flat)](https://csrc.nist.gov/pubs/fips/202/final)
-![C++20](https://img.shields.io/badge/code-C++20-purple?style=flat)
-![Google Code Style](https://img.shields.io/badge/style-Google-purple?style=flat)
-[![Benchmark](https://img.shields.io/badge/benchmark-race-brightgreen?style=flat)](docs/benchmark.md)
-[![GitHub license](https://img.shields.io/github/license/gdaneek/sha-3?style=flat)](https://github.com/gdaneek/sha-3/blob/master/LICENSE)
+[![FIPS 202](https://img.shields.io/badge/Standard-FIPS%20202-345DFF?style=flat&labelColor=333a41)](https://csrc.nist.gov/pubs/fips/202/final)
+![C++20](https://img.shields.io/badge/Code-C++20-8E54E9?style=flat&labelColor=333a41)
+![Google Code Style](https://img.shields.io/badge/Style-Google-7A3DE1?style=flat&labelColor=333a41)
+[![Benchmark](https://img.shields.io/badge/Benchmark-race-3BBE72?style=flat&labelColor=333a41)](docs/benchmark.md)
+[![GitHub license](https://img.shields.io/badge/License-MIT-3CB6C8?style=flat&labelColor=333a41)](https://github.com/gdaneek/sha-3/blob/master/LICENSE)
 <br>
 [![CMake tests](https://github.com/gdaneek/sha-3/actions/workflows/test.yml/badge.svg?)](https://github.com/gdaneek/sha-3/actions/workflows/test.yml)
 [![Deploy Pages](https://github.com/gdaneek/sha-3/actions/workflows/pages.yml/badge.svg?)](https://github.com/gdaneek/sha-3/actions/workflows/pages.yml)
 [![CI/CD Benchmark](https://github.com/gdaneek/sha-3/actions/workflows/benchmark.yml/badge.svg?)](https://github.com/gdaneek/sha-3/actions/workflows/benchmark.yml)
 
-**High-performance** implementation of SHA-3 hashing according to the *FIPS 202* standard
+[**High-performance**](#summary) implementation of SHA-3 hashing according to the *FIPS 202* standard
 
 ---
 
@@ -101,7 +101,7 @@ See [**Manual benchmark**](docs/benchmark.md) for performance testing instructio
 results of automatic CI/CD benchmarking below
 
 <details>
-<summary>Github Actions benchmarking</summary>
+<summary id="summary">Github Actions benchmarking</summary>
 
 
 > Runs on ubuntu latest
@@ -148,7 +148,6 @@ results of automatic CI/CD benchmarking below
 | `openssl dgst -sha3-512 4GB` | 18.455 ± 0.011 | 18.441 | 18.473 | 1.00 |
 | `sha3sum -a 512 4GB` | 29.898 ± 0.056 | 29.845 | 30.021 | 1.62 ± 0.00 |
 | `rhash --sha3-512 4GB` | 23.764 ± 0.040 | 23.724 | 23.867 | 1.29 ± 0.00 |
-
 
 ### Summary
 
